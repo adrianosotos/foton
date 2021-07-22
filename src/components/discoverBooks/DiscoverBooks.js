@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import { BookTitle, Author } from './style'
+import { BookTitle, Author, BookBox, BookInfo, BookPagesInfo, WaveContainer, Content, RedLine, Circle, Triangle } from './style'
 import Axios from 'axios'
+import { VscLibrary } from 'react-icons/vsc'
+import Waves from '../../images/Waves'
 
-function DiscoverBooks ({ bookId }) {
+function DiscoverBooks ({ bookId, index }) {
   const [bookInfo, setBookInfo] = useState({})
   const history = useHistory()
   
   useEffect(() => {
     Axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`).then((res) => {
+      console.log(res.data)
       setBookInfo(res.data.volumeInfo)
     })
   }, [])
@@ -18,10 +21,35 @@ function DiscoverBooks ({ bookId }) {
   }
 
   return (
-    <div onClick={redirectToBookPage}>
-      <BookTitle>{bookInfo.title}</BookTitle>
-      <Author>{bookInfo.authors}</Author>
-    </div>
+    <BookBox onClick={redirectToBookPage}>
+      <BookInfo>
+        {
+          index !== 1 && (
+            <WaveContainer>
+              <Waves />
+            </WaveContainer>
+          )
+        }
+        <Content>
+          <BookTitle>{bookInfo.title}</BookTitle>
+          <Author>{bookInfo.authors}</Author>
+          <BookPagesInfo>
+            <VscLibrary/>120+ <span>Read Now</span>
+          </BookPagesInfo>
+        </Content>
+      </BookInfo>
+      {
+        index !== 1 && (
+          <>
+            <RedLine />
+            <Triangle />
+            <Circle />
+          </>
+        )
+      }
+
+      <img src={bookInfo.imageLinks?.smallThumbnail} />
+    </BookBox>
   )
 }
 
