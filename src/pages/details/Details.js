@@ -5,11 +5,11 @@ import { useReadBook } from '../../context/readBook'
 
 function Details () {
   const { bookId } = useParams()
-  const { setReadBook } = useReadBook()
+  const { saveReadBook } = useReadBook()
   const [bookInfo, setBookInfo] = useState({})
 
   function readBookHandler () {
-    setReadBook({
+    saveReadBook({
       id: bookInfo?.id,
       title: bookInfo?.volumeInfo?.title,
       authors: bookInfo?.volumeInfo?.authors,
@@ -19,7 +19,6 @@ function Details () {
 
   useEffect(() => {
     Axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`).then((res) => {
-      console.log(res)
       setBookInfo(res.data)
     })
   }, [])  
