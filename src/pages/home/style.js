@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
   background-color: #F2F2F2;
+  position: relative;
+  overflow: hidden;
 `
 
 export const Title = styled.h3`
@@ -21,6 +23,7 @@ export const SubtitleContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-right: 20px;
+  margin-bottom: 10px;
   cursor: pointer;
   height: 50px;
 `
@@ -44,9 +47,9 @@ export const SearchBarContainer = styled.div`
   margin: 30px auto;
 
   svg {
-    left: 33px;
+    left: 60px;
     position: relative;
-    top: 6px;
+    top: 40px;
     color: #ccc;
     width: 20px;
     height: 20px;
@@ -61,6 +64,8 @@ export const SearchBar = styled.input`
   box-shadow: 5px 5px 80px rgba(212, 173, 134, 0.122623);
   border-radius: 10px;
   border: none;
+  display: block;
+  margin: 0 auto;
 `
 
 export const DiscoverBooksContainer = styled.div`
@@ -71,9 +76,9 @@ export const DiscoverBooksContainer = styled.div`
 `
 
 export const WaveContainer = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   position: absolute;
-  left: 268px;
-  top: 141px;
+  left: 274px;
+  top: 170px;
 `

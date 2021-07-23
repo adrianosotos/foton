@@ -5,9 +5,12 @@ import CurrentlyReadingCard from '../../components/currentlyReadingCard/Currentl
 import { useHistory } from 'react-router'
 import { VscCircleOutline } from 'react-icons/vsc'
 import Waves from '../../images/Waves'
+import { useReadBook } from '../../context/readBook'
+import Header from '../../components/header/Header'
 
 function Home () {
-  const history = useHistory()  
+  const history = useHistory()
+  const { readBook } = useReadBook()
   const defaultDiscoverBooks = [
       'GXWkDwAAQBAJ',
       'iBHWDwAAQBAJ',
@@ -43,10 +46,20 @@ function Home () {
             defaultDiscoverBooks.map((bookId, index) => <DiscoverBooks bookId={bookId} index={index} />)
           }
         </DiscoverBooksContainer>
-        <Subtitle>Currently Reading</Subtitle>
-        <CurrentlyReadingCard />
+        {
+          readBook && (
+            <>
+              <SubtitleContainer>
+                <Subtitle>Currently Reading</Subtitle>
+                <LinkButton>All</LinkButton>
+              </SubtitleContainer>
+              <CurrentlyReadingCard />
+            </>
+          )
+        }
         <Subtitle>Review of The Days</Subtitle>
         <VideoReview videoId='vBzBgewl4ac' />
+        <Header />
       </HomeContainer>
     )
   }
