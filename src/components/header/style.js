@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { FiHome, FiUser } from "react-icons/fi";
-import { BiBookAlt } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 100%;
@@ -30,5 +29,16 @@ export const Icon = styled.div`
   svg {
     width: 16px;
     height: 18px;
+    display: block;
+    margin: auto;
+  }
+`
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #BFBEBF;
+
+  &.active  {
+    color: #000000;
   }
 `
