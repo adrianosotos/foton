@@ -13,7 +13,7 @@ function Details () {
       id: bookInfo?.id,
       title: bookInfo?.volumeInfo?.title,
       authors: bookInfo?.volumeInfo?.authors,
-      image: bookInfo.volumeInfo?.imageLinks?.thumbnail
+      image: bookInfo.volumeInfo?.imageLinks?.smallThumbnail
     })
   }
 
