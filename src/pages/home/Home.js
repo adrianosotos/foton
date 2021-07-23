@@ -57,7 +57,10 @@ function Home () {
             </>
           )
         }
-        <Subtitle>Review of The Days</Subtitle>
+        <SubtitleContainer>
+          <Subtitle>Review of The Days</Subtitle>
+          <LinkButton>All Videos</LinkButton>
+        </SubtitleContainer>
         <VideoReview videoId='vBzBgewl4ac' />
         <Header />
       </HomeContainer>

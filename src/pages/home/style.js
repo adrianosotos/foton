@@ -47,7 +47,7 @@ export const SearchBarContainer = styled.div`
   margin: 30px auto;
 
   svg {
-    left: 60px;
+    left: 47px;
     position: relative;
     top: 40px;
     color: #ccc;
