@@ -28,9 +28,10 @@ export const BookBox = styled.div`
   }
 
   &:nth-child(2) {
-    background-color: rgb(69, 20, 117, 0.8);
-    height: 104px;
+    background-color: rgb(69,20,117,0.8);
+    height: 115px;
     margin: auto 5px;
+    padding: 5px;
   }
 `
 
@@ -54,6 +55,7 @@ export const Author = styled.i`
 
 export const BookPagesInfo = styled.p`
   font-size: 12px;
+  margin-top: 40px;
 
   span {
     font-style: italic;
