@@ -1,17 +1,23 @@
 import Axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState, useRef } from 'react'
+import { SearchContainer, SearchBarContainer, SearchBar, Book, BookImage, BookGrid,  BookTitle, Author, BookInfo, LoadMoreButton } from './style'
+import { VscCircleOutline } from 'react-icons/vsc'
 import { useHistory } from 'react-router'
 import { useDebouncedEffect } from '../../hooks/useDebounceEffect'
+import Header from '../../components/header/Header'
 
 const PAGE_SIZE = 6
 
 function Search () {
   const history = useHistory()
+  const input = useRef(null)
   const [query, setQuery] = useState('')
   const [books, setBooks] = useState([])
   const [pageIndex, setPageIndex] = useState(1)
+  const [loading, setLoading] = useState(false)
 
   useDebouncedEffect(() => {
+    input.current.focus()
     if (!query) {
       return setBooks([])
     }
@@ -19,10 +25,11 @@ function Search () {
     Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${PAGE_SIZE}`).then((res) => {
       setBooks(res.data.items)
     })
-  }, [query], 200)
+  }, [query], 500)
   
 
   function loadMoreBooks () {
+    setLoading(true)
     const newPageIndex = pageIndex + 1
     setPageIndex(newPageIndex)
     
@@ -30,6 +37,7 @@ function Search () {
     
     Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${pageSize}&startIndex=${PAGE_SIZE*newPageIndex}`).then((res) => {
       setBooks([...books, ...res.data.items])
+      setLoading(false)
     })
   }
 
@@ -38,21 +46,36 @@ function Search () {
   }
 
   return (
-    <div>
-      <input 
-        type="text"
-        onChange={(e) => setQuery(e.target.value)}
-      />
+    <SearchContainer>
+      <SearchBarContainer>
+        <VscCircleOutline />
+        <SearchBar 
+          type="text"
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={'Search Book'}
+          ref={input}
+        />
+      </SearchBarContainer>
+      <BookGrid>
+        {
+          books && books.map(book => (
+            <Book onClick={() => redirectToBookPage(book.id)}>
+              <BookImage src={book.volumeInfo?.imageLinks?.thumbnail} />
+              <BookInfo>
+                <BookTitle>{book.volumeInfo?.title}</BookTitle>
+                <Author>by {book.volumeInfo?.authors}</Author>
+              </BookInfo>
+            </Book>
+          ))
+        }
+      </BookGrid>
       {
-        books && books.map(book => (
-          <img 
-            src={book.volumeInfo?.imageLinks?.thumbnail}
-            onClick={() => redirectToBookPage(book.id)} 
-          />
-        ))
+        query && (
+          <LoadMoreButton onClick={loadMoreBooks}>{loading ? 'Loading...' : 'Load More'}</LoadMoreButton>
+        )
       }
-      <button onClick={loadMoreBooks}>Load more</button>
-    </div>
+      <Header />
+    </SearchContainer>
   )
 }
 
