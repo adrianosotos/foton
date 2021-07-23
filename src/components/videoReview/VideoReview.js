@@ -1,6 +1,9 @@
+
+import { Container } from './style'
+
 function VideoReview ({ videoId }) {
   return (
-    <div>
+    <Container>
       <iframe 
         width="100%"
         height="100%"
@@ -17,7 +20,7 @@ function VideoReview ({ videoId }) {
         " 
         allowFullScreen
       />
-    </div>
+    </Container>
   )
 }
 
