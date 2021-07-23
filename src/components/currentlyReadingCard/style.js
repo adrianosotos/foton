@@ -22,13 +22,18 @@ export const BookBox = styled.div`
   overflow: hidden;
   position: relative;
   padding-top: 10px;
-  justify-content: flex-end;
+  justify-content: space-between;
+`
+
+export const BookSpace = styled.div`
+  width: 100px;
 `
 
 export const BookInfo = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 70px auto 0;
+  margin: 0 31px auto 0;
+  width: 170px;
 `
 
 export const BookTitle = styled.h3`
@@ -69,7 +74,7 @@ export const Circle = styled.div`
 
 export const LightCircle = styled(Circle)`
   border: 2px solid rgb(69,80,167,0.5);
-  bottom: 462px;
+  bottom: 481px;
   left: 258px;
 `
 

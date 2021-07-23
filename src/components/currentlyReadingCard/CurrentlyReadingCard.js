@@ -1,5 +1,5 @@
 import { useReadBook  } from '../../context/readBook'
-import { Container, BookInfo, Author, BookTitle, ChapterInfo, DarkCircle, LightCircle, BookBox, RedLine, WaveContainer } from './style'
+import { Container, BookInfo, Author, BookTitle, ChapterInfo, DarkCircle, LightCircle, BookBox, RedLine, WaveContainer, BookSpace } from './style'
 import { RiBookMarkLine } from "react-icons/ri";
 import Waves from '../../images/Waves'
 
@@ -10,6 +10,7 @@ function CurrentlyReadingCard () {
       <img src={readBook?.image} />
       <LightCircle />
       <BookBox>
+        <BookSpace />
         <BookInfo>
           <DarkCircle />
           <RedLine />
