@@ -15,7 +15,7 @@ export const Title = styled.h3`
 
 export const Name = styled.span`
   color: rgba(255, 105, 120, 1);
-  font-weight: 600;
+  font-weight: 900;
 `
 
 export const SubtitleContainer = styled.div`
@@ -38,7 +38,8 @@ export const LinkButton = styled.button`
 export const Subtitle = styled.h4`
   font-size: 18px;
   margin: 20px;
-  font-weight: 200;
+  font-weight: 600;
+  color: #3F4043;
 `
 
 export const SearchBarContainer = styled.div`
@@ -66,6 +67,11 @@ export const SearchBar = styled.input`
   border: none;
   display: block;
   margin: 0 auto;
+
+  ::placeholder {
+    color: #54565A;
+    font-size: 16px;
+  }
 `
 
 export const DiscoverBooksContainer = styled.div`

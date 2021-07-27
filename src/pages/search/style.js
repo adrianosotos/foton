@@ -32,6 +32,13 @@ export const SearchBar = styled.input`
   border: none;
   display: block;
   margin: 0 auto;
+  color: #54565A;
+  font-size: 16px;
+
+  ::placeholder {
+    color: #54565A;
+    font-size: 16px;
+  }
 `
 
 export const BookGrid = styled.div`

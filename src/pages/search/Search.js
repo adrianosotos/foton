@@ -70,9 +70,9 @@ function Search () {
         }
       </BookGrid>
       {
-        query && (
+        books.length ? (
           <LoadMoreButton onClick={loadMoreBooks}>{loading ? 'Loading...' : 'Load More'}</LoadMoreButton>
-        )
+        ) : null
       }
       <Header />
     </SearchContainer>

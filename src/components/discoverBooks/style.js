@@ -30,8 +30,9 @@ export const BookBox = styled.div`
   &:nth-child(2) {
     background-color: rgb(69,20,117,0.8);
     height: 115px;
+    min-width: 252px;
     margin: auto 5px;
-    padding: 5px;
+    padding: 10px;
   }
 `
 
@@ -44,7 +45,10 @@ export const BookInfo = styled.div`
 export const BookTitle = styled.h4`
   font-size: 18px;
   color: #ffffff;
-  margin-bottom: 0px;
+  margin: 0;
+  font-family: 'Playfair Display';
+  font-size: 27px;
+  font-weight: 700;
 `
 
 export const Author = styled.i`
@@ -55,7 +59,7 @@ export const Author = styled.i`
 
 export const BookPagesInfo = styled.p`
   font-size: 12px;
-  margin-top: 40px;
+  margin-top: 10px;
 
   span {
     font-style: italic;
@@ -73,7 +77,8 @@ export const WaveContainer = styled.div`
 
 export const Content = styled.div`
   z-index: 2;
-  margin: auto;
+  margin: 20px;
+  height: 100%;
 `
 
 export const RedLine = styled.div`
