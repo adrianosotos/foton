@@ -23,7 +23,7 @@ export const SubtitleContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-right: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   cursor: pointer;
   height: 50px;
 `
@@ -46,11 +46,12 @@ export const SearchBarContainer = styled.div`
   max-width: 100%;
   display: block;
   margin: 30px auto;
+  position: relative;
 
   svg {
-    left: 47px;
+    left: 50px;
     position: relative;
-    top: 40px;
+    top: 39px;
     color: #ccc;
     width: 20px;
     height: 20px;

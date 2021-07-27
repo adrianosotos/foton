@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   margin-bottom: 40px;
+  position: relative;
 
   img {
     width: 91px;
     height: 136px;
     margin: 0 20px;
     position: absolute;
-    top: 468px;
+    top: -10px;
     z-index: 1;
   }
 `
@@ -74,7 +75,7 @@ export const Circle = styled.div`
 
 export const LightCircle = styled(Circle)`
   border: 2px solid rgb(69,80,167,0.5);
-  bottom: 481px;
+  bottom: 96px;
   left: 258px;
 `
 

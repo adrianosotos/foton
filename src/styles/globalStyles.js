@@ -6,7 +6,6 @@ export const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'SF Pro Display';
     src: url(${SFProDisplay}) format('woff');
-    font-weight: 500;
   }
 
   @font-face {
