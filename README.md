@@ -5,6 +5,8 @@ This is a Foton Tech frontend challenge which uses Google Books API and React to
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 OBS.: To show currently reading book on home page you have to click on 'Read' on a book page.
+
+Preview: https://foton-challenge.netlify.app/
 ## How to run
 
 In the project directory, you can run:
