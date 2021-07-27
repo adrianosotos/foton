@@ -7,7 +7,7 @@ function CurrentlyReadingCard () {
   const { readBook } = useReadBook()
   return (
     <Container>
-      <img src={readBook?.image} />
+      <img alt="book" src={readBook?.image} />
       <LightCircle />
       <BookBox>
         <BookSpace />

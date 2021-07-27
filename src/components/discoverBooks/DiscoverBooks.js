@@ -11,10 +11,9 @@ function DiscoverBooks ({ bookId, index }) {
   
   useEffect(() => {
     Axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`).then((res) => {
-      console.log(res.data)
       setBookInfo(res.data.volumeInfo)
     })
-  }, [])
+  }, [bookId])
 
   function redirectToBookPage () {
     history.push(`/book/${bookId}`)
@@ -48,7 +47,7 @@ function DiscoverBooks ({ bookId, index }) {
         )
       }
 
-      <img src={bookInfo.imageLinks?.smallThumbnail} />
+      <img alt="book" src={bookInfo.imageLinks?.smallThumbnail} />
     </BookBox>
   )
 }

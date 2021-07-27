@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Axios from 'axios'
 import { useReadBook } from '../../context/readBook'
 import { ArtContainer, BookImage } from './style'
-import { BookContent, Container, BookTitle, Author, Description, LargerWaveContainer, SmallerWaveContainer, BlueBall, RedBall, PurpleCircle, ImageContainer, ArrowContainer, LeftArrow} from './style';
+import { BookContent, Container, BookTitle, Author, Description, LargerWaveContainer, SmallerWaveContainer, BlueBall, RedBall, PurpleCircle, ImageContainer, LeftArrow} from './style';
 import { useHistory } from 'react-router'
 import Waves from '../../images/Waves'
 import BookMenu from '../../components/bookMenu/BookMenu'
@@ -31,7 +31,7 @@ function Details () {
     Axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`).then((res) => {
       setBookInfo(res.data)
     })
-  }, [])  
+  }, [bookId])  
   return (
       <Container>
         <ArtContainer>
